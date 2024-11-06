@@ -370,11 +370,11 @@
 
 # 5. 코드리팩토링 결과
 ## 5.4 기존과 클래스 다이어그램 비교  
-### 5.4.1 원본(nlptutti패키지) vs 리펙토링본(nlptutti패키지)  
-    ![alt text](readme_images/class1.png)  
-### 5.4.2 원본(test패키지 nlptest모듈) vs 리펙토링본(test_pack패키지)  
+- 5.4.1 원본(nlptutti패키지) vs 리펙토링본(nlptutti패키지)  
+    ![alt text](readme_images/class1.png)
+- 5.4.2 원본(test패키지 nlptest모듈) vs 리펙토링본(test_pack패키지)  
     ![alt text](readme_images/class2.png)  
-### 5.4.3 원본(test패키지 test_er모듈0) vs 리펙토링본(test_pack패키지)  
+-  5.4.3 원본(test패키지 test_er모듈0) vs 리펙토링본(test_pack패키지)  
     ![alt text](readme_images/class3.png)  
 # 6. 후기
 ## 6.1 느낀점
