@@ -1,65 +1,64 @@
-# 코드 리펙토링
+# 코드 리펙토링 프로젝트
 
-## 원본 제목
-
-Korean STT error rates
-
-## 원본 저장소
-
-https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
-
-## 목차
-
-1. 프로젝트 목적
-2. 코드 리펙토링 방향성
-3. 코드 분석
-    1. 프로젝트 구성 파일
-    2. 프로그램 동작 패키지
-    3. 테스트 코드 패키지
-    4. 프로그램 동작과정
-4. 코드 리펙토링
-    1. 클래스 다이어그램 작성
-    2. 패키지 제작 - 완
-    3. 도커 제작 - 완
-    4. 프로젝트 구성 파일 내용 작성 - 완
-5. 코드 리펙토링 결과
-    1. 패키지 - 완
-    2. 프로젝트 구성 파일 - 완
-    3. 도커 이미지 - 완
+# 목차
+1. 프로젝트 개요  
+2. 코드 리펙토링 방향성  
+3. 코드 분석  
+    1. 프로젝트 구성 파일  
+    2. 프로그램 동작 패키지  
+    3. 테스트 코드 패키지  
+    4. 프로그램 동작과정  
+4. 코드 리펙토링  
+    1. 클래스 다이어그램 작성 - 완  
+    2. 패키지 제작 - 완  
+    3. 도커 제작 - 완  
+    4. 프로젝트 구성 파일 내용 작성 - 완  
+5. 코드 리펙토링 결과  
+    1. 패키지 - 완  
+    2. 프로젝트 구성 파일 - 완  
+    3. 도커 이미지 - 완  
+    4. 기존과 클래스 다이어그램 비교
 6. 후기
+7. 적용된 기술
 
-## 프로젝트 목적
+# 1. 프로젝트 개요
+## 1.1 원본 정보
+
+원본 제목 : Korean STT error rates  
+원본 저장소 : https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
+
+## 1.2 프로젝트 목적
 
 - 다른사람의 프로젝트를 코드 리팩토링 진행하며 남의 코드를 이해하고 수정 및 사용하는 능력을 기르고자함
 
-## 코드 리펙토링 방향성
+# 2. 코드 리펙토링 방향성
 
 - 모듈 및 패키지화
 - 함수 지향형 코드 → 클래스 지향형 코드
 - 폴더 정리
 - 배포 : 도커 파일
 
-## 코드 분석
+# 3. 코드 분석
 
-### 프로젝트 구성 파일
+## 3.1 프로젝트 구성 파일
 
-1. setup.py
+### 3.1.1 setup.py
     - setuptools를 활용한 프로젝트의 기본 정보 기록
     - 배포를 가능하게 만든 파일
-2. requirements.txt
+### 3.1.2 requirements.txt
     - 프로젝트에서 사용한 외부 라이브러리들의 이름을 모아놓은 파일
-3. README.md
+### 3.1.3 README.md
     - 프로젝트의 상세 설명이 담긴 파일
-4. LICENSE
+### 3.1.4 LICENSE
     - 프로젝트의 라이센스가 담긴 파일(MIT LICENSE 사용중)
-5. gitinore
+### 3.1.5 gitinore
     - git에 프로젝트를 저장할시 미포함 시킬 파일 및 폴더를 작성한 파일
-6. pic
+### 3.1.6 pic
     - README.md에서 사용한 사진을 저장해놓은 폴더
 
-### 프로그램 패키지
+## 3.2 프로그램 패키지
 
-1. __init__.py 
+### 3.2.1 __init__.py 
     - 모듈의 문서 형식 지정
         
         ```
@@ -89,7 +88,7 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
         #           "get_wer"]
         ```
         
-2. asr_metrics.py
+### 3.2.2 asr_metrics.py
     1. def levenshtein(u, v):
         
         ```
@@ -213,9 +212,9 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
         ```
         
 
-### 테스트 코드 패키지
+## 3.3 테스트 코드 패키지
 
-1. nlptest.py
+### 3.3.1 nlptest.py
     1. TestER class
         
          def test_cer_case_korean(self):
@@ -243,7 +242,7 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
         cer_clova : Clova 모델에 대한 문자 오류율(CER)
         ```
         
-2. test_er.py
+### 3.3.2 test_er.py
     1. 모든 메소드 중복 내용
         
         ```
@@ -339,7 +338,7 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
         ```
         
 
-### 프로그램 동작 과정
+## 3.4 프로그램 동작 과정
 
 ![alt text](readme_images/testcase.png)
 - nlptest,TestER의 string데이터
@@ -348,11 +347,11 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
 ![alt text](readme_images/test_cer_case_korean.png)
 - 모든 함수의 흐름이 method test_cer_case_korean와 비슷하여 이 부분의 흐름만 요약함
 
-## 코드 리펙토링
+# 4. 코드 리펙토링
 
-### 클래스 다이어그램 작성
+## 4.1 클래스 다이어그램 작성
 
-- 중점 내용
+### 4.1.1 중점 내용
 1. Test 모듈 정비
     - 두 테스트모듈 nlptest,test_er이 같은형식을 띄고있어 하나의 모듈로 합침
     - nlptest의 메소드들은 입력 문자열만 다르고 과정이 같음
@@ -369,9 +368,16 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
     
     ![alt text](readme_images/new_nlptutti.png)
 
-## 코드리팩토링 결과
-## 후기
-### 느낀점
+# 5. 코드리팩토링 결과
+## 5.4 기존과 클래스 다이어그램 비교  
+### 5.4.1 원본(nlptutti패키지) vs 리펙토링본(nlptutti패키지)  
+    ![alt text](readme_images/class1.png)  
+### 5.4.2 원본(test패키지 nlptest모듈) vs 리펙토링본(test_pack패키지)  
+    ![alt text](readme_images/class2.png)  
+### 5.4.3 원본(test패키지 test_er모듈0) vs 리펙토링본(test_pack패키지)  
+    ![alt text](readme_images/class3.png)  
+# 6. 후기
+## 6.1 느낀점
 1. 생각보다 어려웠고 오래걸렸다.
     - 기본적으로 코드의 내용을 갈아 엎는다고 하더라도 내용을 다 해석가능한 내용이였다.  
     그러나 챗 gpt까지 써서 했음에도 불구하고 너무 오래걸렸다. 이유는 다음과 같다.  
@@ -407,7 +413,7 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
     - git 관리 중 커밋이나 푸시 취소 스테이징 취소등 이런기법이 필요함.  
 
 
-### 적용된 기술
+# 7. 적용된 기술
 1. docker
 - 이미지 생성
 - 컨테이너 생성 및 사용
